@@ -30,13 +30,12 @@ function scroll_page() {
   go_top_button.classList.toggle("go-top--visible", window.scrollY > window.innerHeight);
 }
 
-function set_cookie(name, value, days) {
-  const date = new Date(Date.now() + days * 86400000);
-  document.cookie = `${name}=${value}; expires=${date.toUTCString()}; path=/`;
+function save_cookie(name) {
+  localStorage.setItem(name, "yes");
 }
 
-function get_cookie(name) {
-  return document.cookie.split("; ").some((item) => item.startsWith(`${name}=`));
+function has_cookie(name) {
+  return localStorage.getItem(name) !== null;
 }
 
 function close_menu() {
@@ -87,12 +86,12 @@ scroll_page();
 
 go_top_button.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
-if (!get_cookie("ipadzone_cookie")) {
+if (!has_cookie("ipadzone_cookie")) {
   cookie_bar.classList.add("cookie--visible");
 }
 
 cookie_button.addEventListener("click", () => {
-  set_cookie("ipadzone_cookie", "yes", 30);
+  save_cookie("ipadzone_cookie");
   cookie_bar.classList.remove("cookie--visible");
 });
 
