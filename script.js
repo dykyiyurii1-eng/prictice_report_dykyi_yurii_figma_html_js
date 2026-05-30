@@ -59,3 +59,12 @@ go_top_button.addEventListener("click", () => {
     behavior: "smooth"
   });
 });
+
+if (localStorage.getItem("ipadzone_cookie") === null) {
+  cookie_bar.classList.add("cookie--visible");
+}
+
+cookie_button.addEventListener("click", () => {
+  localStorage.setItem("ipadzone_cookie", "yes");
+  cookie_bar.classList.remove("cookie--visible");
+});
