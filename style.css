@@ -38,7 +38,15 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
 }
-
+body.light-theme {
+  --color-bg: #f5f7fb;
+  --color-surface: #ffffff;
+  --color-surface-soft: #e8eef9;
+  --color-text: #121722;
+  --color-muted: #596174;
+  --color-border: rgba(18, 23, 34, 0.1);
+  --shadow-card: 0 18px 46px rgba(25, 45, 80, 0.13);
+}
 body.menu-open,
 body.modal-opened {
   overflow: hidden;
