@@ -4,6 +4,7 @@ const header_block = document.querySelector(".header");
 
 const burger_button = document.querySelector(".nav__burger");
 const mobile_menu = document.querySelector(".nav__list");
+const menu_links = document.querySelectorAll(".nav__link");
 
 const go_top_button = document.querySelector(".go-top");
 
@@ -23,6 +24,10 @@ const newsletter_email_input = document.querySelector("#newsletter-email");
 const form_message = document.querySelector(".form-message");
 
 const theme_button = document.querySelector(".theme-toggle");
+const slider_slides = document.querySelectorAll(".slider__slide");
+const slider_prev = document.querySelector(".slider__button--prev");
+const slider_next = document.querySelector(".slider__button--next");
+const slider_dots = document.querySelector(".slider__dots");
 
 theme_button.addEventListener("click", () => {
   document.body.classList.toggle("light-theme");
@@ -68,3 +73,56 @@ cookie_button.addEventListener("click", () => {
   localStorage.setItem("ipadzone_cookie", "yes");
   cookie_bar.classList.remove("cookie--visible");
 });
+
+burger_button.addEventListener("click", () => {
+  const is_open = mobile_menu.classList.toggle("is-open");
+
+  burger_button.classList.toggle("is-active", is_open);
+  document.body.classList.toggle("menu-open", is_open);
+});
+
+menu_links.forEach((link) => {
+  link.addEventListener("click", () => {
+    mobile_menu.classList.remove("is-open");
+    burger_button.classList.remove("is-active");
+    document.body.classList.remove("menu-open");
+  });
+});
+
+let active_slide = 0;
+
+function show_slide(index) {
+  slider_slides.forEach((slide, slide_index) => {
+    slide.classList.toggle("slider__slide--active", slide_index === index);
+  });
+
+  document.querySelectorAll(".slider__dot").forEach((dot, dot_index) => {
+    dot.classList.toggle("slider__dot--active", dot_index === index);
+  });
+}
+
+slider_slides.forEach((slide, index) => {
+  const dot = document.createElement("button");
+
+  dot.className = "slider__dot";
+  dot.type = "button";
+  dot.setAttribute("aria-label", `Показати слайд ${index + 1}`);
+  dot.addEventListener("click", () => {
+    active_slide = index;
+    show_slide(active_slide);
+  });
+
+  slider_dots.append(dot);
+});
+
+slider_prev.addEventListener("click", () => {
+  active_slide = (active_slide - 1 + slider_slides.length) % slider_slides.length;
+  show_slide(active_slide);
+});
+
+slider_next.addEventListener("click", () => {
+  active_slide = (active_slide + 1) % slider_slides.length;
+  show_slide(active_slide);
+});
+
+show_slide(active_slide);
