@@ -1,91 +1,358 @@
-  <!DOCTYPE html>
-  <html lang="uk">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iPadZone - світ iPad у твоїх руках</title>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <header class="header" id="top">
-      <nav class="nav container" aria-label="Головна навігація">
-        <a class="nav__logo" href="#top">iPad<span>Zone</span></a>
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iPadZone - світ iPad у твоїх руках</title>
 
-        <button class="nav__burger" type="button" aria-label="Відкрити меню" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="header" id="top">
+    <nav class="nav container" aria-label="Головна навігація">
+      <a class="nav__logo" href="#top">iPad<span>Zone</span></a>
+
+      <button class="nav__burger" type="button" aria-label="Відкрити меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav__list">
+        <li class="nav__item"><a class="nav__link" href="#catalog">iPad</a></li>
+        <li class="nav__item"><a class="nav__link" href="#accessories">Аксесуари</a></li>
+        <li class="nav__item"><a class="nav__link" href="#about">Про нас</a></li>
+        <li class="nav__item"><a class="nav__link" href="#contacts">Контакти</a></li>
+        <li class="nav__item"><a class="nav__link" href="#benefits">Переваги</a></li>
+        <li class="nav__item"><a class="nav__link" href="#delivery">Доставка і оплата</a></li>
+      </ul>
+
+      <div class="nav__actions" aria-label="Дії користувача">
+        <button class="nav__icon" type="button" aria-label="Пошук">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
         </button>
 
-        <ul class="nav__list">
-          <li class="nav__item"><a class="nav__link" href="#catalog">iPad</a></li>
-          <li class="nav__item"><a class="nav__link" href="#accessories">Аксесуари</a></li>
-          <li class="nav__item"><a class="nav__link" href="#about">Про нас</a></li>
-          <li class="nav__item"><a class="nav__link" href="#contacts">Контакти</a></li>
-          <li class="nav__item"><a class="nav__link" href="#benefits">Переваги</a></li>
-          <li class="nav__item"><a class="nav__link" href="#delivery">Доставка і оплата</a></li>
+        <button class="nav__icon theme-toggle" type="button" aria-label="Перемкнути тему">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
+
+        <button class="nav__icon" type="button" aria-label="Кошик">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section-animate" aria-labelledby="hero-title">
+      <div class="hero__inner container">
+        <div class="hero__content">
+          <h1 class="hero__title" id="hero-title">
+            iPadZone -<br>світ <span>iPad</span> у<br>твоїх руках
+          </h1>
+
+          <p class="hero__text">
+            Оригінальні iPad, аксесуари та турбота про кожного клієнта.
+          </p>
+
+          <button class="button button--primary modal-open" type="button">
+            Купити зараз
+          </button>
+        </div>
+
+        <div class="hero__image">
+          <img src="image/головне.png" alt="Синій iPad на темному фоні">
+        </div>
+      </div>
+    </section>
+
+    <section class="features container section-animate" id="benefits" aria-labelledby="benefits-title">
+      <h2 class="section-title" id="benefits-title">Переваги магазину</h2>
+
+      <div class="features__grid">
+        <article class="feature-card">
+          <div class="feature-card__icon" aria-hidden="true">01</div>
+          <h3 class="feature-card__title">Оригінальна продукція Apple</h3>
+          <p class="feature-card__text">
+            Лише сертифіковані товари від офіційних дистриб'юторів.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-card__icon" aria-hidden="true">02</div>
+          <h3 class="feature-card__title">Зручна оплата</h3>
+          <p class="feature-card__text">
+            Готівка, картка, розстрочка та кредит на зручний термін.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-card__icon" aria-hidden="true">03</div>
+          <h3 class="feature-card__title">Швидка доставка</h3>
+          <p class="feature-card__text">
+            Доставка по всій Україні від одного робочого дня.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-card__icon" aria-hidden="true">04</div>
+          <h3 class="feature-card__title">Підтримка 24/7</h3>
+          <p class="feature-card__text">
+            Фахівці допоможуть підібрати модель та аксесуари онлайн.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="products section-animate" id="catalog" aria-labelledby="products-title">
+      <div class="container">
+        <p class="section-label">Каталог</p>
+        <h2 class="section-title" id="products-title">Популярні моделі iPad</h2>
+        <p class="section-subtitle">
+          Вибирайте серед найкращих пристроїв Apple для роботи, навчання та творчості.
+        </p>
+
+        <div class="products__grid">
+          <article class="product-card product-card--featured">
+            <img class="product-card__image" src="image/ipad_1.webp" alt="iPad Pro 11">
+            <h3 class="product-card__title">iPad Pro 11"</h3>
+            <p class="product-card__price">від 39 999 ₴</p>
+            <button class="button button--small modal-open" type="button">Купити</button>
+          </article>
+
+          <article class="product-card">
+            <img class="product-card__image" src="image/ipad_2.webp" alt="iPad Air 11">
+            <h3 class="product-card__title">
+              iPad Air 11" <span class="product-card__badge">NEW</span>
+            </h3>
+            <p class="product-card__price">від 27 999 ₴</p>
+            <button class="button button--small modal-open" type="button">Купити</button>
+          </article>
+
+          <article class="product-card">
+            <img class="product-card__image" src="image/ipad_3.webp" alt="iPad Pro 12.9">
+            <h3 class="product-card__title">iPad Pro 12.9"</h3>
+            <p class="product-card__price">від 17 999 ₴</p>
+            <button class="button button--small modal-open" type="button">Купити</button>
+          </article>
+
+          <article class="product-card">
+            <img class="product-card__image" src="image/ipad_4.webp" alt="iPad Pro 13">
+            <h3 class="product-card__title">iPad Pro 13"</h3>
+            <p class="product-card__price">від 16 999 ₴</p>
+            <button class="button button--small modal-open" type="button">Купити</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slider section-animate" id="accessories" aria-labelledby="slider-title">
+      <div class="container">
+        <p class="section-label">Добірка</p>
+        <h2 class="section-title" id="slider-title">Аксесуари для твого iPad</h2>
+
+        <div class="slider__box">
+          <button class="slider__button slider__button--prev" type="button" aria-label="Попередній слайд">
+            &#10094;
+          </button>
+
+          <div class="slider__viewport">
+            <article class="slider__slide slider__slide--active">
+              <h3 class="slider__title">Apple Pencil Pro</h3>
+              <p class="slider__text">Точний стилус для нотаток, ескізів та дизайну.</p>
+            </article>
+
+            <article class="slider__slide">
+              <h3 class="slider__title">Magic Keyboard</h3>
+              <p class="slider__text">Клавіатура з трекпадом для комфортної роботи.</p>
+            </article>
+
+            <article class="slider__slide">
+              <h3 class="slider__title">Smart Folio</h3>
+              <p class="slider__text">Захист корпусу та зручна підставка в одному чохлі.</p>
+            </article>
+          </div>
+
+          <button class="slider__button slider__button--next" type="button" aria-label="Наступний слайд">
+            &#10095;
+          </button>
+        </div>
+
+        <div class="slider__dots" aria-label="Навігація слайдера"></div>
+      </div>
+    </section>
+
+    <section class="promo section-animate" id="about" aria-labelledby="about-title">
+      <div class="container promo__grid">
+        <article class="promo-card">
+          <p class="promo-card__label">Про нас</p>
+          <h2 class="promo-card__title" id="about-title">
+            iPadZone - магазин техніки та аксесуарів Apple
+          </h2>
+          <p class="promo-card__text">
+            Ми допомагаємо клієнтам обирати iPad для навчання, роботи та творчості.
+          </p>
+        </article>
+
+        <aside class="timer" aria-label="Таймер акції">
+          <p class="timer__label">До кінця акції</p>
+          <h3 class="timer__title">Знижка -10%</h3>
+
+          <div class="timer__row">
+            <span class="timer__item"><b data-days>00</b>днів</span>
+            <span class="timer__item"><b data-hours>00</b>год</span>
+            <span class="timer__item"><b data-minutes>00</b>хв</span>
+            <span class="timer__item"><b data-seconds>00</b>сек</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="reviews section-animate" id="reviews" aria-labelledby="reviews-title">
+      <div class="container">
+        <p class="section-label">Відгуки</p>
+        <h2 class="section-title" id="reviews-title">Що кажуть наші клієнти</h2>
+
+        <div class="reviews__grid">
+          <article class="review-card">
+            <div class="review-card__header">
+              <span class="review-card__avatar" aria-hidden="true">А</span>
+              <div>
+                <h3 class="review-card__name">Андрій</h3>
+                <p class="review-card__stars" aria-label="Оцінка 5 із 5">★★★★★</p>
+              </div>
+            </div>
+            <p class="review-card__text">
+              Чудовий магазин! Швидко відправили, все оригінальне та нове.
+            </p>
+          </article>
+
+          <article class="review-card">
+            <div class="review-card__header">
+              <span class="review-card__avatar review-card__avatar--green" aria-hidden="true">М</span>
+              <div>
+                <h3 class="review-card__name">Марія</h3>
+                <p class="review-card__stars" aria-label="Оцінка 5 із 5">★★★★★</p>
+              </div>
+            </div>
+            <p class="review-card__text">
+              Дуже приємне обслуговування та підтримка.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter section-animate" id="delivery" aria-labelledby="newsletter-title">
+      <div class="newsletter__card container">
+        <h2 class="newsletter__title" id="newsletter-title">
+          Доставка, оплата та новини
+        </h2>
+
+        <p class="newsletter__text">
+          Підпишись на розсилку, щоб отримувати інформацію про новинки та акції.
+        </p>
+
+        <form class="newsletter__form" novalidate>
+          <label class="visually-hidden" for="newsletter-email">Email</label>
+          <input class="newsletter__input" id="newsletter-email" type="email" placeholder="Введіть ваш email" required>
+          <span class="form-message" aria-live="polite"></span>
+          <button class="button button--primary" type="submit">Підписатися</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contacts">
+    <div class="footer__grid container">
+      <div class="footer__brand">
+        <a class="nav__logo" href="#top">iPad<span>Zone</span></a>
+        <p>iPadZone - твій надійний партнер у світі iPad.</p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Каталог у футері">
+        <h3 class="footer__title">Каталог</h3>
+        <ul class="footer__list">
+          <li><a class="footer__link" href="#catalog">iPad Pro</a></li>
+          <li><a class="footer__link" href="#catalog">iPad Air</a></li>
+          <li><a class="footer__link" href="#catalog">iPad mini</a></li>
+          <li><a class="footer__link" href="#accessories">Аксесуари</a></li>
         </ul>
       </nav>
-    </header>
 
-    <main>
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero__inner container">
-          <div class="hero__content">
-            <h1 class="hero__title" id="hero-title">
-              iPadZone -<br>світ iPad у<br>твоїх руках
-            </h1>
-            <p class="hero__text">
-              Оригінальні iPad, аксесуари та турбота про кожного клієнта.
-            </p>
-            <button class="button button--primary" type="button">Купити зараз</button>
-          </div>
-        </div>
-      </section>
+      <nav class="footer__nav" aria-label="Контакти">
+        <h3 class="footer__title">Контакти</h3>
+        <ul class="footer__list">
+          <li><a class="footer__link" href="tel:+380500000000">+38 (050) 000-00-00</a></li>
+          <li><a class="footer__link" href="mailto:info@ipadzone.ua">info@ipadzone.ua</a></li>
+          <li>м. Київ, вул. Хрещатик, 1</li>
+        </ul>
+      </nav>
 
-      <section class="features container" id="benefits" aria-labelledby="benefits-title">
-        <h2 id="benefits-title">Переваги магазину</h2>
-      </section>
+      <nav class="footer__nav" aria-label="Покупцям">
+        <h3 class="footer__title">Покупцям</h3>
+        <ul class="footer__list">
+          <li><a class="footer__link" href="#delivery">Доставка і оплата</a></li>
+          <li><a class="footer__link" href="#delivery">Гарантія</a></li>
+          <li>
+            <button class="footer__button modal-open" type="button">
+              Задати питання
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
-      <section class="products" id="catalog" aria-labelledby="products-title">
-        <div class="container">
-          <h2 id="products-title">Популярні моделі iPad</h2>
-        </div>
-      </section>
+    <div class="footer__bottom container">
+      <p>© 2024 iPadZone. Усі права захищені.</p>
+      <p>Політика конфіденційності · Угода користувача</p>
+    </div>
+  </footer>
 
-      <section class="slider" id="accessories" aria-labelledby="slider-title">
-        <div class="container">
-          <h2 id="slider-title">Аксесуари для твого iPad</h2>
-        </div>
-      </section>
+  <div class="cookie" aria-live="polite">
+    <p class="cookie__text">Ми використовуємо cookies, щоб сайт працював зручно.</p>
+    <button class="button button--small cookie__button" type="button">Прийняти</button>
+  </div>
 
-      <section class="promo" id="about" aria-labelledby="promo-title">
-        <div class="container">
-          <h2 id="promo-title">Знижка -10% на аксесуари</h2>
-        </div>
-      </section>
+  <button class="go-top" type="button" aria-label="Повернутися нагору">↑</button>
 
-      <section class="reviews" id="reviews" aria-labelledby="reviews-title">
-        <div class="container">
-          <h2 id="reviews-title">Що кажуть наші клієнти</h2>
-        </div>
-      </section>
+  <div class="modal" aria-hidden="true">
+    <div class="modal__overlay"></div>
 
-      <section class="newsletter" id="delivery" aria-labelledby="newsletter-title">
-        <div class="container">
-          <h2 id="newsletter-title">Будь першим, хто дізнається про новинки та акції</h2>
-        </div>
-      </section>
-    </main>
+    <div class="modal__window" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal__close" type="button" aria-label="Закрити форму">×</button>
 
-    <footer class="footer" id="contacts">
-      <div class="container">
-        <a class="nav__logo" href="#top">iPad<span>Zone</span></a>
-        <p>© 2024 iPadZone. Усі права захищені.</p>
-      </div>
-    </footer>
+      <h2 class="modal__title" id="modal-title">Залишити заявку</h2>
 
-    <script src="script.js"></script>
-  </body>
-  </html>
+      <p class="modal__text">
+        Напишіть email, і менеджер зв'яжеться з вами для уточнення замовлення.
+      </p>
+
+      <form class="modal__form" novalidate>
+        <label class="visually-hidden" for="modal-email">Email</label>
+        <input class="modal__input" id="modal-email" type="email" placeholder="name@example.com" required>
+
+        <span class="modal__error" aria-live="polite"></span>
+
+        <button class="button button--primary" type="submit">Відправити</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
