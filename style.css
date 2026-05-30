@@ -347,6 +347,10 @@ body.light-theme .header {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.review-card:last-child {
+  grid-column: 1 / -1;
+}
+
 .promo__grid {
   grid-template-columns: 1.4fr 0.8fr;
 }
@@ -622,8 +626,12 @@ body.light-theme .header {
   color: var(--color-success);
 }
 
-.form-message--error,
 .modal__error {
+  color: var(--color-success);
+}
+
+.form-message--error,
+.modal__error.form-message--error {
   color: #ff7080;
 }
 
@@ -750,6 +758,7 @@ body.js-animate .section-animate {
   transform: translateY(28px);
 }
 
+body.js-animate .section-animate.is-visible,
 .section-animate.is-visible {
   opacity: 1;
   transform: translateY(0);
