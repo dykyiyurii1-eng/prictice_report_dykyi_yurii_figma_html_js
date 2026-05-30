@@ -18,10 +18,6 @@ const newsletter_form = document.querySelector(".newsletter__form");
 const newsletter_email_input = document.querySelector("#newsletter-email");
 const form_message = document.querySelector(".form-message");
 const theme_button = document.querySelector(".theme-toggle");
-const slider_slides = document.querySelectorAll(".slider__slide");
-const slider_prev = document.querySelector(".slider__button--prev");
-const slider_next = document.querySelector(".slider__button--next");
-const slider_dots = document.querySelector(".slider__dots");
 const animated_sections = document.querySelectorAll(".section-animate");
 const email_regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const sale_end = new Date();
@@ -109,37 +105,29 @@ burger_button.addEventListener("click", () => {
 
 menu_links.forEach((link) => link.addEventListener("click", close_menu));
 
-let active_slide = 0;
+const splideElement = document.querySelector(".splide");
 
-function show_slide(index) {
-  slider_slides.forEach((slide, i) => slide.classList.toggle("slider__slide--active", i === index));
-  document.querySelectorAll(".slider__dot").forEach((dot, i) => dot.classList.toggle("slider__dot--active", i === index));
+if (splideElement && window.Splide) {
+  new Splide(splideElement, {
+    type: "loop",
+    perPage: 1,
+    gap: "16px",
+    loop: true,
+    arrows: true,
+    pagination: true,
+    autoplay: true,
+    interval: 1500,
+    pauseOnHover: true,
+    pauseOnFocus: true,
+    breakpoints: {
+      768: {
+        arrows: false,
+        perPage: 1,
+        gap: "12px"
+      }
+    }
+  }).mount();
 }
-
-slider_slides.forEach((slide, index) => {
-  const dot = document.createElement("button");
-
-  dot.className = "slider__dot";
-  dot.type = "button";
-  dot.ariaLabel = `Показати слайд ${index + 1}`;
-  dot.addEventListener("click", () => {
-    active_slide = index;
-    show_slide(active_slide);
-  });
-  slider_dots.append(dot);
-});
-
-slider_prev.addEventListener("click", () => {
-  active_slide = (active_slide - 1 + slider_slides.length) % slider_slides.length;
-  show_slide(active_slide);
-});
-
-slider_next.addEventListener("click", () => {
-  active_slide = (active_slide + 1) % slider_slides.length;
-  show_slide(active_slide);
-});
-
-show_slide(active_slide);
 
 modal_open_buttons.forEach((button) => button.addEventListener("click", open_modal));
 modal_close_button.addEventListener("click", close_modal);

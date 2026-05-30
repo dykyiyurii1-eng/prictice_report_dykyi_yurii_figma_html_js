@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -127,7 +128,7 @@
         </p>
 
         <div class="products__grid">
-          <article class="product-card product-card--featured">
+          <article class="product-card">
             <img class="product-card__image" src="image/ipad_1.webp" alt="iPad Pro 11">
             <h3 class="product-card__title">iPad Pro 11"</h3>
             <p class="product-card__price">від 39 999 ₴</p>
@@ -165,34 +166,26 @@
         <p class="section-label">Добірка</p>
         <h2 class="section-title" id="slider-title">Аксесуари для твого iPad</h2>
 
-        <div class="slider__box">
-          <button class="slider__button slider__button--prev" type="button" aria-label="Попередній слайд">
-            &#10094;
-          </button>
+        <div class="splide slider__box" aria-label="Аксесуари для iPad">
+          <div class="splide__track slider__viewport">
+            <div class="splide__list">
+              <article class="splide__slide slider__slide">
+                <h3 class="slider__title">Apple Pencil Pro</h3>
+                <p class="slider__text">Точний стилус для нотаток, ескізів та дизайну.</p>
+              </article>
 
-          <div class="slider__viewport">
-            <article class="slider__slide slider__slide--active">
-              <h3 class="slider__title">Apple Pencil Pro</h3>
-              <p class="slider__text">Точний стилус для нотаток, ескізів та дизайну.</p>
-            </article>
+              <article class="splide__slide slider__slide">
+                <h3 class="slider__title">Magic Keyboard</h3>
+                <p class="slider__text">Клавіатура з трекпадом для комфортної роботи.</p>
+              </article>
 
-            <article class="slider__slide">
-              <h3 class="slider__title">Magic Keyboard</h3>
-              <p class="slider__text">Клавіатура з трекпадом для комфортної роботи.</p>
-            </article>
-
-            <article class="slider__slide">
-              <h3 class="slider__title">Smart Folio</h3>
-              <p class="slider__text">Захист корпусу та зручна підставка в одному чохлі.</p>
-            </article>
+              <article class="splide__slide slider__slide">
+                <h3 class="slider__title">Smart Folio</h3>
+                <p class="slider__text">Захист корпусу та зручна підставка в одному чохлі.</p>
+              </article>
+            </div>
           </div>
-
-          <button class="slider__button slider__button--next" type="button" aria-label="Наступний слайд">
-            &#10095;
-          </button>
         </div>
-
-        <div class="slider__dots" aria-label="Навігація слайдера"></div>
       </div>
     </section>
 
@@ -210,7 +203,7 @@
         </article>
 
         <aside class="timer" aria-label="Таймер акції">
-          <h3 class="timer__title">До кінця акції</h3>
+          <h3 class="timer__title timer__price">До кінця акції</h3>
 
           <div class="timer__row">
             <span class="timer__item"><b data-days>00</b>днів</span>
@@ -382,6 +375,7 @@
     </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
