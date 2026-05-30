@@ -681,8 +681,11 @@ gap: 18px;
   gap: 12px;
 }
 
-.newsletter__form .button {
-  min-width: 166px;
+
+  .newsletter__form .button {
+    min-width: 180px;
+    width: fit-content;
+    justify-self: center;
 }
 
 .newsletter__input,
@@ -830,6 +833,7 @@ gap: 18px;
   justify-content: center;
   padding: 20px;
 }
+
 
 .modal--active {
   display: flex;
@@ -983,7 +987,7 @@ body.js-animate .section-animate.is-visible,
   .features__grid,
   .reviews__grid,
   .footer__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 2fr;
   }
 
   .products__grid {
@@ -1000,8 +1004,10 @@ body.js-animate .section-animate.is-visible,
   }
 
   .newsletter__form .button {
-    width: 100%;
-  }
+    min-width: 180px;
+    width: fit-content;
+    justify-self: center;
+}
 
   .slider .splide__track {
     min-height: 180px;
