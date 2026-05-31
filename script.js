@@ -1,6 +1,7 @@
 "use strict";
 
 const header_block = document.querySelector(".header");
+const nav_block = document.querySelector(".nav");
 const burger_button = document.querySelector(".nav__burger");
 const mobile_menu = document.querySelector(".nav__list");
 const menu_links = document.querySelectorAll(".nav__link");
@@ -21,28 +22,58 @@ const theme_button = document.querySelector(".theme-toggle");
 const animated_sections = document.querySelectorAll(".section-animate");
 const email_regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const sale_end = new Date();
+let last_scroll_position = window.scrollY;
 
 sale_end.setDate(sale_end.getDate() + 7);
 sale_end.setHours(23, 59, 59, 999);
 
 function scroll_page() {
-  header_block.classList.toggle("header--scrolled", window.scrollY > 20);
+  const current_scroll_position = window.scrollY;
+  const is_scrolling_down = current_scroll_position > last_scroll_position;
+  const is_menu_or_modal_open = document.body.classList.contains("menu-open") || document.body.classList.contains("modal-opened");
+
+  header_block.classList.toggle("header--scrolled", current_scroll_position > 20);
+  header_block.classList.toggle("header--hidden", current_scroll_position > 90 && is_scrolling_down && !is_menu_or_modal_open);
   go_top_button.classList.toggle("go-top--visible", window.scrollY > window.innerHeight);
+
+  last_scroll_position = current_scroll_position;
 }
 
-function save_cookie(name) {
-  const week = 60 * 60 * 24 * 7;
-  document.cookie = `${name}=yes; max-age=${week}; path=/`;
+function saveStorage(name, value) {
+  localStorage.setItem(name, value);
 }
 
-function has_cookie(name) {
-  return document.cookie.includes(`${name}=yes`);
+function getStorage(name) {
+  return localStorage.getItem(name) || "";
 }
+
+if (!getStorage("ipadzone_cookie")) {
+  cookie_bar.classList.add("cookie--visible");
+}
+
+cookie_button.addEventListener("click", () => {
+  saveStorage("ipadzone_cookie", "yes");
+  cookie_bar.classList.remove("cookie--visible");
+});
+
+
+
 
 function close_menu() {
   mobile_menu.classList.remove("is-open");
   burger_button.classList.remove("is-active");
+  burger_button.setAttribute("aria-expanded", "false");
   document.body.classList.remove("menu-open");
+  scroll_page();
+}
+
+function toggle_menu() {
+  const is_open = mobile_menu.classList.toggle("is-open");
+
+  burger_button.classList.toggle("is-active", is_open);
+  burger_button.setAttribute("aria-expanded", String(is_open));
+  document.body.classList.toggle("menu-open", is_open);
+  header_block.classList.remove("header--hidden");
 }
 
 function open_modal() {
@@ -94,23 +125,16 @@ scroll_page();
 
 go_top_button.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
-if (!has_cookie("ipadzone_cookie")) {
-  cookie_bar.classList.add("cookie--visible");
-}
-
-cookie_button.addEventListener("click", () => {
-  save_cookie("ipadzone_cookie");
-  cookie_bar.classList.remove("cookie--visible");
-});
-
-burger_button.addEventListener("click", () => {
-  const is_open = mobile_menu.classList.toggle("is-open");
-
-  burger_button.classList.toggle("is-active", is_open);
-  document.body.classList.toggle("menu-open", is_open);
-});
+burger_button.addEventListener("click", toggle_menu);
 
 menu_links.forEach((link) => link.addEventListener("click", close_menu));
+
+document.addEventListener("click", (event) => {
+  if (!document.body.classList.contains("menu-open")) return;
+  if (nav_block.contains(event.target)) return;
+
+  close_menu();
+});
 
 const splideElement = document.querySelector(".splide");
 
@@ -169,8 +193,6 @@ if ("IntersectionObserver" in window) {
 
   animated_sections.forEach((section) => observer.observe(section));
 }
-
-
 
 function update_timer() {
   const time_left = sale_end - new Date();
