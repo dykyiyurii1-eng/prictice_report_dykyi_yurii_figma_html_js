@@ -31,11 +31,12 @@ function scroll_page() {
 }
 
 function save_cookie(name) {
-  localStorage.setItem(name, "yes");
+  const week = 60 * 60 * 24 * 7;
+  document.cookie = `${name}=yes; max-age=${week}; path=/`;
 }
 
 function has_cookie(name) {
-  return localStorage.getItem(name) !== null;
+  return document.cookie.includes(`${name}=yes`);
 }
 
 function close_menu() {
