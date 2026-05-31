@@ -81,7 +81,13 @@ theme_button.addEventListener("click", () => {
 });
 
 window.addEventListener("scroll", scroll_page);
-window.addEventListener("resize", scroll_page);
+window.addEventListener("resize", () => {
+  scroll_page();
+
+  if (window.innerWidth > 1024) {
+    close_menu();
+  }
+});
 scroll_page();
 
 go_top_button.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
@@ -133,6 +139,7 @@ modal_close_button.addEventListener("click", close_modal);
 modal_overlay.addEventListener("click", close_modal);
 
 document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") close_menu();
   if (event.key === "Escape" && modal_window.classList.contains("modal--active")) close_modal();
 });
 
