@@ -45,6 +45,7 @@ function close_menu() {
 }
 
 function open_modal() {
+  close_menu();
   modal_window.classList.add("modal--active");
   modal_window.ariaHidden = "false";
   document.body.classList.add("modal-opened");
