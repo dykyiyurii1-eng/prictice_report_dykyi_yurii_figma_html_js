@@ -4,6 +4,7 @@
   padding: 0;
 }
 
+
 :root {
   --font-main: 'Manrope', Arial, sans-serif;
   --color-bg: #111318;
@@ -21,6 +22,8 @@
   --container: 1180px;
   --space-section: 80px;
 }
+
+
 
 body.light-theme {
   --color-bg: #f5f7fb;
@@ -149,19 +152,16 @@ body.light-theme .header {
   font-weight: 600;
   transition: color 0.3s ease;
 }
-
 .nav__link:hover,
 .nav__link:active,
 .footer__list a:hover,
 .footer__button:hover {
   color: var(--color-text);
 }
-
 .nav__actions {
   align-items: center;
   gap: 12px;
 }
-
 .nav__icon,
 .nav__burger,
 .modal__close,
@@ -172,7 +172,6 @@ body.light-theme .header {
   border: 0;
   background: transparent;
 }
-
 .nav__icon {
   width: 36px;
   height: 36px;

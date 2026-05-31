@@ -161,6 +161,8 @@ if ("IntersectionObserver" in window) {
   animated_sections.forEach((section) => observer.observe(section));
 }
 
+
+
 function update_timer() {
   const time_left = sale_end - new Date();
   const second = 1000;
